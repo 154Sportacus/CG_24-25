@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<world>
+  <window width="512" height="512"/>
+  <camera>
+    <position x="10" y="10" z="10"/>
+    <lookAt x="0" y="0" z="0"/>
+    <up x="0" y="1" z="0"/>
+    <projection fov="60" near="1" far="1000"/>
+  </camera>
+  <!-- As luzes não são utilizadas nesta fase, mas podem ser incluídas se desejado -->
+  <lights>
+    <light type="point" posX="0" posY="10" posZ="0"/>
+  </lights>
+  <group>
+    <!-- Transformação global para a 8ball; neste caso, nenhuma alteração -->
+    <transform>
+      <translate x="0" y="0" z="0"/>
+    </transform>
+    <group>
+      <!-- Primeira esfera (inferior): sua base já está em y=0 -->
+      <models>
+        <model file="sphere_1_8_8.3d"/>
+      </models>
+      <!-- Grupo da esfera superior -->
+      <group>
+        <transform>
+          <!-- Escala para reduzir a esfera para 50% -->
+          <scale x="0.5" y="0.5" z="0.5"/>
+        </transform>
+        <group>
+          <transform>
+            <!-- Translação: dentro do grupo com scale 0.5, para obter uma translação efetiva de 2, usamos 4 -->
+            <translate x="0" y="4" z="0"/>
+          </transform>
+          <models>
+            <model file="sphere_1_8_8.3d"/>
+          </models>
+        </group>
+      </group>
+    </group>
+  </group>
+</world>
